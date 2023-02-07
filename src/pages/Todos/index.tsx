@@ -1,7 +1,7 @@
 
 import { PageContainer } from '@ant-design/pro-components';
 import { useModel } from '@umijs/max';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import TodoForm from './components/TodoForm';
 import TodosComp from './components/Todos';
 import styles from './index.less';
@@ -20,17 +20,17 @@ const Todos: React.FC = () => {
       res([
         {
           id: 1,
-          text: "Write a new blog post.",
+          text: "使用脚手架初始化一个项目",
           isCompleted: false
         },
         {
           id: 2,
-          text: "Pick up laundry.",
+          text: "创建组件路由",
           isCompleted: false
         },
         {
           id: 3,
-          text: "Die.",
+          text: "开始写组件",
           isCompleted: false
         }
       ])
@@ -44,6 +44,15 @@ const Todos: React.FC = () => {
       setTodos([])
     }
   }, [setTodos])
+
+  //TODO:  watch
+  // 每当 question 改变时，这个函数就会执行
+  //   question(newQuestion, oldQuestion) {
+  //     if (newQuestion.includes('?')) {
+  //       this.getAnswer()
+  //     }
+  //   }
+  const total = useMemo(() => `总数：${todos.length}`, [todos])
 
   const addTodo = (todo: string) => {
     setTodos([...todos, { text: todo }] as any);
@@ -77,6 +86,7 @@ const Todos: React.FC = () => {
               <Spin spinning={loading}>
                 <TodosComp todos={todos} markComplete={markComplete} editTitle={editTitle} />
               </Spin>
+              {total}
             </div>
           </div>
         </div>
