@@ -9,15 +9,11 @@ import './index.less';
 import { Spin } from 'antd';
 
 const Todos: React.FC = () => {
-  const { name } = useModel('global');
-
-
-
-
+  //TODO: Data区域
   const [todos, setTodos] = useState<{ id: number, text: string, isCompleted: boolean }[]>([]);
   const [loading, setloading] = useState<boolean>(false);
 
-  // Mounted
+  ///TODO: Mounted
   useEffect(() => {
     setloading(true)
     new Promise(res => setTimeout(() => {
@@ -70,6 +66,7 @@ const Todos: React.FC = () => {
     setTodos(newTodos);
   };
 
+  ///TODO: template区域
   return (
     <PageContainer ghost>
       <div className="parent-container">
