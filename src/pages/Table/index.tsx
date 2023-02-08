@@ -241,7 +241,7 @@ const TableList: React.FC<unknown> = () => {
         />
       ) : null}
 
-      <Drawer
+      {/* <Drawer
         width={600}
         visible={!!row}
         onClose={() => {
@@ -262,7 +262,7 @@ const TableList: React.FC<unknown> = () => {
             columns={columns}
           />
         )}
-      </Drawer>
+      </Drawer> */}
     </PageContainer>
   );
 };
